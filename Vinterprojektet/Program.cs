@@ -1,17 +1,16 @@
-﻿// Inga publika variabler - inkapsling - Get / Set
-using Raylib_cs;
+﻿using Raylib_cs;
 
-Raylib.InitWindow(800, 800, "A Cube");
+Raylib.InitWindow(700, 700, "A Cube");
 Raylib.SetTargetFPS(60);
 
-// VARIABLES
+// VARIABLES AND SUCH
 string scene = "start";
 Character player = new();
 
 while (!Raylib.WindowShouldClose())
 {
 //--------------------------------------------------------------------------------
-//              SPELETS LOGIK
+//              GAME LOGIC
 //--------------------------------------------------------------------------------
 
     if (scene == "start")
@@ -30,7 +29,7 @@ while (!Raylib.WindowShouldClose())
     }
     else if (scene == "room1")
     {
-        
+        player.Movement();   
     }
     else if (scene == "finished" || scene == "gameOver")
     {

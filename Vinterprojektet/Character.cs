@@ -3,59 +3,48 @@ using System.Numerics;
 
 public class Character
 {
-    private Rectangle charRect = new Rectangle(400, 500, 30, 30);
-    private Vector2 movement = new Vector2(0, 0);
-    private float speed = 5;
+    private Rectangle _charRect = new Rectangle(400, 500, 30, 30);
+    private Vector2 _movement = new Vector2(0, 0);
+    private float _speed = 5;
 
     public void DrawCharacter()
     {
-        Raylib.DrawRectangleRec(charRect, Color.Black);
+        Raylib.DrawRectangleRec(_charRect, Color.Black);
     }
 
-
-    public Vector2 Movement (out Vector2 movement, float speed)
+    public void Movement()
     {
-        movement = Vector2.Zero;
+        _movement = Vector2.Zero;
 
-        if (Raylib.IsKeyDown(KeyboardKey.Left))
+        if (Raylib.IsKeyDown(KeyboardKey.Left) || Raylib.IsKeyDown(KeyboardKey.A))
         {
-            movement.X = -1;
+            _movement.X = -1;
         }
-        else if (Raylib.IsKeyDown(KeyboardKey.Right))
+        else if (Raylib.IsKeyDown(KeyboardKey.Right) || Raylib.IsKeyDown(KeyboardKey.D))
         {
-            movement.X = 1;
+            _movement.X = 1;
         }
-        if (Raylib.IsKeyDown(KeyboardKey.Up))
+        if (Raylib.IsKeyDown(KeyboardKey.Up) || Raylib.IsKeyDown(KeyboardKey.W))
         {
-            movement.Y = -1;
+            _movement.Y = -1;
         }
-        else if (Raylib.IsKeyDown(KeyboardKey.Down))
+        else if (Raylib.IsKeyDown(KeyboardKey.Down) || Raylib.IsKeyDown(KeyboardKey.S))
         {
-            movement.Y = 1;
+            _movement.Y = 1;
         }
         
-        if (movement.Length() > 0)
+        if (_movement.Length() > 0)
         {
-        movement = Vector2.Normalize(movement) * speed;
+        _movement = Vector2.Normalize(_movement) * _speed;
         }
 
-        charRect.X += movement.X;
-        charRect.Y += movement.Y;
+        _charRect.X += _movement.X;
+        _charRect.Y += _movement.Y;
 
-        // bool undoCharX = false;     
-        // bool undoCharY = false;
-
-        // if (undoCharX == true)
-        // {
-        //     charRect.X -= movement.X;
-        // }
-        // if (undoCharY == true)
-        // {
-        //     charRect.Y -= movement.Y;
-        // }
-
-        return movement;
     }
     
 
 }
+
+    // public Vector2 Movement (out Vector2 movement, float speed)
+        // return _movement;
