@@ -44,6 +44,7 @@ public class Character
         _charRect.Y += _movement.Y;
 
     }
+
 }
 
 // public Vector2 Movement (out Vector2 movement, float speed)

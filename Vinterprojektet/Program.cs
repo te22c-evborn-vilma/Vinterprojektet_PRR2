@@ -7,12 +7,15 @@ Raylib.SetTargetFPS(60);
 string scene = "start";
 Character player = new();
 
+
+
 while (!Raylib.WindowShouldClose())
 {
     //--------------------------------------------------------------------------------
     //              GAME LOGIC
     //--------------------------------------------------------------------------------
 
+    // START SCREEN - the screen will move to the tutorial if the player presses SPACE
     if (scene == "start")
     {
         if (Raylib.IsKeyPressed(KeyboardKey.Space))
@@ -20,6 +23,7 @@ while (!Raylib.WindowShouldClose())
             scene = "tutorial";
         }
     }
+    // TUTORIAL SCREEN - the screen will move to ROOM 1 (challenge) if the player presses ENTER
     else if (scene == "tutorial")
     {
         if (Raylib.IsKeyPressed(KeyboardKey.Enter))
@@ -27,6 +31,8 @@ while (!Raylib.WindowShouldClose())
             scene = "room1";
         }
     }
+    // ROOM 1 - the point is that the screen will move to the either the FINISHED-screen and the 
+    // GAME OVER-screen depending on whether the player wins or loses
     else if (scene == "room1")
     {
         player.Movement();
@@ -37,6 +43,7 @@ while (!Raylib.WindowShouldClose())
             scene = "finished";
         }
     }
+    // FINISHED/GAME OVER - the player can press ENTER to play again and the screen moves to ROOM 1
     else if (scene == "finished" || scene == "gameOver")
     {
         if (Raylib.IsKeyPressed(KeyboardKey.Enter))
