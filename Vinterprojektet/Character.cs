@@ -12,10 +12,12 @@ public class Character
         Raylib.DrawRectangleRec(_charRect, Color.Black);
     }
 
+    // Spelarens rörelse beroende på vilken knapp som trycks ned
     public void Movement()
     {
         _movement = Vector2.Zero;
 
+        // ta bort att man kan styr med WASD?
         if (Raylib.IsKeyDown(KeyboardKey.Left) || Raylib.IsKeyDown(KeyboardKey.A))
         {
             _movement.X = -1;
@@ -32,19 +34,17 @@ public class Character
         {
             _movement.Y = 1;
         }
-        
+
         if (_movement.Length() > 0)
         {
-        _movement = Vector2.Normalize(_movement) * _speed;
+            _movement = Vector2.Normalize(_movement) * _speed;
         }
 
         _charRect.X += _movement.X;
         _charRect.Y += _movement.Y;
 
     }
-    
-
 }
 
-    // public Vector2 Movement (out Vector2 movement, float speed)
-        // return _movement;
+// public Vector2 Movement (out Vector2 movement, float speed)
+// return _movement;
