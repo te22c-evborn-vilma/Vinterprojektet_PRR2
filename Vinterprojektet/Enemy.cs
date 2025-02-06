@@ -1,15 +1,15 @@
 using Raylib_cs;
 using System.Numerics;
 
-public class Enemy : Character
-{
-    private Rectangle _enemyRect = new Rectangle(300, 300, 30, 30);
-    private Vector2 _enemyMovement = new Vector2(0, 2);
+// public class Enemy : Character
+// {
+    // private Rectangle _enemyRect = new Rectangle(300, 300, 30, 30);
+    // private Vector2 _enemyMovement = new Vector2(0, 2);
 
-    public void DrawEnemy()
-    {
-        Raylib.DrawRectangleRec(_enemyRect, Color.Yellow);
-    }
+    // public void DrawEnemy()
+    // {
+    //     Raylib.DrawRectangleRec(_enemyRect, Color.Yellow);
+    // }
 
     // public void EnemyMovement()
     // {
@@ -20,4 +20,4 @@ public class Enemy : Character
     //         _enemyMovement.X *= -1;
     //     }
     // }
-}
+// }

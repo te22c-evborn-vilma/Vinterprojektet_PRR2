@@ -5,8 +5,8 @@ Raylib.SetTargetFPS(60);
 
 // VARIABLES AND SUCH
 string scene = "start";
-Player player = new();
-Enemy enemy = new();
+Player player = new Player(new Rectangle(4,4,32,32));
+// Enemy enemy = new();
 
 
 
@@ -74,8 +74,8 @@ while (!Raylib.WindowShouldClose())
     else if (scene == "room1")
     {
         Raylib.ClearBackground(Color.White);
-        player.DrawPlayer();
-        enemy.DrawEnemy();
+        player.DrawCharacter();
+        // enemy.DrawEnemy();
     }
 
     else if (scene == "finished")

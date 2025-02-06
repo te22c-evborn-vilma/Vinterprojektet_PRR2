@@ -3,20 +3,12 @@ using System.Numerics;
 
 public class Player : Character
 {
-    private Rectangle _charRect = new Rectangle(400, 500, 30, 30);
-    private Vector2 _movement = new Vector2(0, 0);
-    private float _speed = 5;
+    public Player(Rectangle rect) : base(rect){}
 
-    // call for DrawPlayer in program.cs to draw the player
-    public void DrawPlayer()
-    {
-        Raylib.DrawRectangleRec(_charRect, Color.SkyBlue);
-    }
     public void Movement()
     {
         _movement = Vector2.Zero;
 
-        // ta bort att man kan styra med WASD?
         if (Raylib.IsKeyDown(KeyboardKey.Left) || Raylib.IsKeyDown(KeyboardKey.A))
         {
             _movement.X = -1;
@@ -41,6 +33,14 @@ public class Player : Character
 
         _charRect.X += _movement.X;
         _charRect.Y += _movement.Y;
-
     }
+
+    // private Rectangle _charRect = new Rectangle(400, 500, 30, 30);
+    // private Vector2 _movement = new Vector2(0, 0);
+    // private float _speed = 5;
+    // call for DrawPlayer in program.cs to draw the player
+    // public void DrawPlayer()
+    // {
+    //     Raylib.DrawRectangleRec(_charRect, Color.SkyBlue);
+    // }
 }

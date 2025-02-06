@@ -4,18 +4,29 @@ using System.Runtime;
 
 public class Character
 {
-    private int _hp;
+    protected Rectangle _charRect;
+
+    public Character(Rectangle rect)
+    {
+        _charRect = rect;
+    }
     
-    // don't know what i will do with this
-    private bool isAlive = true;
+    protected Vector2 _movement = new Vector2(0, 0);
+    protected float _speed = 5; 
 
-    public void Hurt(int amount)
+    public void DrawCharacter()
     {
+        Raylib.DrawRectangleRec(_charRect, Color.Black);
+    }
 
-    }
-    public int Attack()
-    {
-        _hp -= 5;
-        return _hp;
-    }
+    // protected int _hp;
+    // private bool isAlive = true;
+    // public void Hurt(int amount)
+    // {
+    // }
+    // public int TakeDamage()
+    // {
+    //     _hp -= 5;
+    //     return _hp;
+    // }
 }
