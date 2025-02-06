@@ -5,7 +5,8 @@ Raylib.SetTargetFPS(60);
 
 // VARIABLES AND SUCH
 string scene = "start";
-Character player = new();
+Player player = new();
+Enemy enemy = new();
 
 
 
@@ -31,11 +32,12 @@ while (!Raylib.WindowShouldClose())
             scene = "room1";
         }
     }
-    // ROOM 1 - the point is that the screen will move to the either the FINISHED-screen and the 
-    // GAME OVER-screen depending on whether the player wins or loses
+    // ROOM 1 - the point is that the screen will move to either the FINISHED-screen or the 
+    // GAME OVER-screen depending on whether the player won or lost
     else if (scene == "room1")
     {
         player.Movement();
+        // enemy.EnemyMovement();
 
         // "finished" för att testa nu - annars ska det stå att spelaren behöver nå en viss position för att gå vidare
         if (Raylib.IsKeyPressed(KeyboardKey.Space))
@@ -72,7 +74,8 @@ while (!Raylib.WindowShouldClose())
     else if (scene == "room1")
     {
         Raylib.ClearBackground(Color.White);
-        player.DrawCharacter();
+        player.DrawPlayer();
+        enemy.DrawEnemy();
     }
 
     else if (scene == "finished")
@@ -84,7 +87,5 @@ while (!Raylib.WindowShouldClose())
     {
         Raylib.ClearBackground(Color.White);
     }
-
-
     Raylib.EndDrawing();
 }

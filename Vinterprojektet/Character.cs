@@ -1,51 +1,21 @@
 using Raylib_cs;
 using System.Numerics;
+using System.Runtime;
 
 public class Character
 {
-    private Rectangle _charRect = new Rectangle(400, 500, 30, 30);
-    private Vector2 _movement = new Vector2(0, 0);
-    private float _speed = 5;
+    private int _hp;
+    
+    // don't know what i will do with this
+    private bool isAlive = true;
 
-    public void DrawCharacter()
+    public void Hurt(int amount)
     {
-        Raylib.DrawRectangleRec(_charRect, Color.Black);
-    }
-
-    // Spelarens rörelse beroende på vilken knapp som trycks ned
-    public void Movement()
-    {
-        _movement = Vector2.Zero;
-
-        // ta bort att man kan styr med WASD?
-        if (Raylib.IsKeyDown(KeyboardKey.Left) || Raylib.IsKeyDown(KeyboardKey.A))
-        {
-            _movement.X = -1;
-        }
-        else if (Raylib.IsKeyDown(KeyboardKey.Right) || Raylib.IsKeyDown(KeyboardKey.D))
-        {
-            _movement.X = 1;
-        }
-        if (Raylib.IsKeyDown(KeyboardKey.Up) || Raylib.IsKeyDown(KeyboardKey.W))
-        {
-            _movement.Y = -1;
-        }
-        else if (Raylib.IsKeyDown(KeyboardKey.Down) || Raylib.IsKeyDown(KeyboardKey.S))
-        {
-            _movement.Y = 1;
-        }
-
-        if (_movement.Length() > 0)
-        {
-            _movement = Vector2.Normalize(_movement) * _speed;
-        }
-
-        _charRect.X += _movement.X;
-        _charRect.Y += _movement.Y;
 
     }
-
+    public int Attack()
+    {
+        _hp -= 5;
+        return _hp;
+    }
 }
-
-// public Vector2 Movement (out Vector2 movement, float speed)
-// return _movement;
