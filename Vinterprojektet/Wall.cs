@@ -2,8 +2,7 @@ using Raylib_cs;
 
 public class Wall
 {
-    // public Wall(float x, float y, float b, float h) : base (x, y, b, h)
-    // {
-
-    // }
+    // Lista med walls
+    // While eller for-loop som ritar ut walls
+    
 }

@@ -8,13 +8,18 @@ string scene = "start";
 Player player = new Player(new Rectangle(4,4,32,32));
 // Enemy enemy = new();
 
+Scene startScene = new();
+Scene infoScene = new();
 
+Scene currentScene = startScene;
 
 while (!Raylib.WindowShouldClose())
 {
     //--------------------------------------------------------------------------------
     //              GAME LOGIC
     //--------------------------------------------------------------------------------
+
+    currentScene = currentScene.Update();
 
     // START SCREEN - the screen will move to the tutorial if the player presses SPACE
     if (scene == "start")
@@ -32,7 +37,7 @@ while (!Raylib.WindowShouldClose())
             scene = "room1";
         }
     }
-    // ROOM 1 - the point is that the screen will move to either the FINISHED-screen or the 
+    // ROOM 1 - the screen will move to either the FINISHED-screen or the 
     // GAME OVER-screen depending on whether the player won or lost
     else if (scene == "room1")
     {
@@ -75,17 +80,17 @@ while (!Raylib.WindowShouldClose())
     {
         Raylib.ClearBackground(Color.White);
         player.DrawCharacter();
-        // enemy.DrawEnemy();
+        // enemy.DrawCharacter();
     }
 
     else if (scene == "finished")
     {
-        Raylib.ClearBackground(Color.Black);
+        Raylib.ClearBackground(Color.Pink);
     }
 
     else if (scene == "gameOver")
     {
-        Raylib.ClearBackground(Color.White);
+        Raylib.ClearBackground(Color.Yellow);
     }
     Raylib.EndDrawing();
 }

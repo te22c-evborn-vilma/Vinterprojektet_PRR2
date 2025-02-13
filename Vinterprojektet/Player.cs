@@ -5,7 +5,7 @@ public class Player : Character
 {
     public Player(Rectangle rect) : base(rect){}
 
-    public void Movement()
+    public override void Movement()
     {
         _movement = Vector2.Zero;
 
@@ -17,14 +17,15 @@ public class Player : Character
         {
             _movement.X = 1;
         }
+        // Jumping, MaxHeight, MinimumHeight - när jumping är true hoppar karaktären
         if (Raylib.IsKeyDown(KeyboardKey.Up) || Raylib.IsKeyDown(KeyboardKey.W))
         {
             _movement.Y = -1;
         }
-        // else if (Raylib.IsKeyDown(KeyboardKey.Down) || Raylib.IsKeyDown(KeyboardKey.S))
-        // {
-        //     _movement.Y = 1;
-        // }
+        else if (Raylib.IsKeyDown(KeyboardKey.Down) || Raylib.IsKeyDown(KeyboardKey.S))
+        {
+            _movement.Y = 1;
+        }
 
         if (_movement.Length() > 0)
         {
@@ -35,12 +36,14 @@ public class Player : Character
         _charRect.Y += _movement.Y;
     }
 
+    public void Attack()
+    {
+        // target är Enemy
+    }
+    public void TakeDamage()
+    {
+        // använda protected int från Character Class
+    }
+
     // private Rectangle _charRect = new Rectangle(400, 500, 30, 30);
-    // private Vector2 _movement = new Vector2(0, 0);
-    // private float _speed = 5;
-    // call for DrawPlayer in program.cs to draw the player
-    // public void DrawPlayer()
-    // {
-    //     Raylib.DrawRectangleRec(_charRect, Color.SkyBlue);
-    // }
 }
