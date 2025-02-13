@@ -10,6 +10,9 @@ Player player = new Player(new Rectangle(4,4,32,32));
 
 Scene startScene = new();
 Scene infoScene = new();
+Scene room1Scene = new();
+Scene finishedScene = new();
+Scene gameOverScene = new();
 
 Scene currentScene = startScene;
 

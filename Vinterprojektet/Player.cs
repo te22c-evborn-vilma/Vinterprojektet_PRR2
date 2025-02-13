@@ -4,7 +4,6 @@ using System.Numerics;
 public class Player : Character
 {
     public Player(Rectangle rect) : base(rect){}
-
     public override void Movement()
     {
         _movement = Vector2.Zero;
@@ -18,14 +17,14 @@ public class Player : Character
             _movement.X = 1;
         }
         // Jumping, MaxHeight, MinimumHeight - när jumping är true hoppar karaktären
-        if (Raylib.IsKeyDown(KeyboardKey.Up) || Raylib.IsKeyDown(KeyboardKey.W))
+        if (Raylib.IsKeyDown(KeyboardKey.Up) || Raylib.IsKeyDown(KeyboardKey.W) || Raylib.IsKeyDown(KeyboardKey.Space))
         {
             _movement.Y = -1;
         }
-        else if (Raylib.IsKeyDown(KeyboardKey.Down) || Raylib.IsKeyDown(KeyboardKey.S))
-        {
-            _movement.Y = 1;
-        }
+        // else if (Raylib.IsKeyDown(KeyboardKey.Down) || Raylib.IsKeyDown(KeyboardKey.S))
+        // {
+        //     _movement.Y = 1;
+        // }
 
         if (_movement.Length() > 0)
         {

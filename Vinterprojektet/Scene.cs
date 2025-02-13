@@ -3,6 +3,7 @@ public class Scene
 {
     public virtual Scene Update()
     {
-        return new infoScene();
+        return this;
+        // return new infoScene;
     }
 }
