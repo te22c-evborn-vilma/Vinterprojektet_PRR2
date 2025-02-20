@@ -1,4 +1,3 @@
-
 public class Scene
 {
     public virtual Scene Update()

@@ -1,4 +1,5 @@
 ﻿using Raylib_cs;
+using System.Numerics;
 
 Raylib.InitWindow(700, 700, "A Cube");
 Raylib.SetTargetFPS(60);
@@ -7,6 +8,7 @@ Raylib.SetTargetFPS(60);
 string scene = "start";
 Player player = new Player(new Rectangle(4,4,32,32));
 // Enemy enemy = new();
+Font f1 = Raylib.LoadFontEx(@"Lato-Regular.ttf", 36, null, -1);
 
 Scene startScene = new();
 Scene infoScene = new();
@@ -72,6 +74,10 @@ while (!Raylib.WindowShouldClose())
     if (scene == "start")
     {
         Raylib.ClearBackground(Color.White);
+        Raylib.DrawTextEx(f1, "Cube", new Vector2(250, 230), 40, 10, Color.Black);
+        Raylib.DrawTextEx(f1, "Cube", new Vector2(253, 233), 40, 10, Color.Blue);
+        Raylib.DrawRectangle(300, 300, 40, 40, Color.Yellow);
+        Raylib.DrawTextEx(f1, "Press SPACE to continue", new Vector2(130, 550), 25, 10, Color.Black);
     }
 
     else if (scene == "tutorial")
